@@ -29,12 +29,45 @@
 		825B688D300755D5009943CA /* CarePulseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarePulseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		825B6870300755D2009943CA /* CarePulse */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CarePulse;
-			sourceTree = "<group>";
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		825B68D63008AC1C009943CA /* Exceptions for "CarePulse" folder in "CarePulse" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				CarePulseApp.swift,
+				ContentView.swift,
+				"Preview Content/Preview Assets.xcassets",
+				Services/Persistence.swift,
+				Views/LogInView.swift,
+				Views/RegisterView.swift,
+			);
+			target = 825B686D300755D2009943CA /* CarePulse */;
 		};
+		825B68D83008AC1C009943CA /* Exceptions for "CarePulse" folder in "CarePulseUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Assets.xcassets,
+				CarePulse.xcdatamodeld,
+				CarePulseApp.swift,
+				ContentView.swift,
+				"Preview Content/Preview Assets.xcassets",
+				Services/Persistence.swift,
+			);
+			target = 825B688C300755D5009943CA /* CarePulseUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		825B68D73008AC1C009943CA /* Exceptions for "CarePulse" folder in "Compile Sources" phase from "CarePulse" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 825B686A300755D2009943CA /* Sources */;
+			membershipExceptions = (
+				CarePulse.xcdatamodeld,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
 		825B6886300755D5009943CA /* CarePulseTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CarePulseTests;
@@ -43,6 +76,16 @@
 		825B6890300755D5009943CA /* CarePulseUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CarePulseUITests;
+			sourceTree = "<group>";
+		};
+		825B68CF3008AC1C009943CA /* CarePulse */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				825B68D63008AC1C009943CA /* Exceptions for "CarePulse" folder in "CarePulse" target */,
+				825B68D73008AC1C009943CA /* Exceptions for "CarePulse" folder in "Compile Sources" phase from "CarePulse" target */,
+				825B68D83008AC1C009943CA /* Exceptions for "CarePulse" folder in "CarePulseUITests" target */,
+			);
+			path = CarePulse;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,7 +118,7 @@
 		825B6865300755D2009943CA = {
 			isa = PBXGroup;
 			children = (
-				825B6870300755D2009943CA /* CarePulse */,
+				825B68CF3008AC1C009943CA /* CarePulse */,
 				825B6886300755D5009943CA /* CarePulseTests */,
 				825B6890300755D5009943CA /* CarePulseUITests */,
 				825B686F300755D2009943CA /* Products */,
@@ -106,9 +149,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				825B6870300755D2009943CA /* CarePulse */,
 			);
 			name = CarePulse;
 			packageProductDependencies = (
@@ -155,6 +195,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				825B6890300755D5009943CA /* CarePulseUITests */,
+				825B68CF3008AC1C009943CA /* CarePulse */,
 			);
 			name = CarePulseUITests;
 			packageProductDependencies = (
