@@ -12,6 +12,7 @@ struct LogInView: View {
     @State private var username = ""
     @State private var password = ""
     @State private var errorMessage = ""
+    @State private var isLoggedIn = false
     
     var body: some View {
         NavigationStack {
@@ -40,6 +41,7 @@ struct LogInView: View {
                             errorMessage = "Username and password are required."
                         } else {
                             errorMessage = ""
+                            isLoggedIn = true
                         }
                         
                     } label: {
@@ -70,6 +72,9 @@ struct LogInView: View {
             }
             .padding()
             .navigationBarHidden(true)
+            .navigationDestination(isPresented: $isLoggedIn) {
+                HomeView()
+            }
         }
     }
 }

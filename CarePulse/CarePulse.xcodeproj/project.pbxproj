@@ -38,8 +38,14 @@
 				ContentView.swift,
 				"Preview Content/Preview Assets.xcassets",
 				Services/Persistence.swift,
+				Views/AppointmentsView.swift,
+				Views/HomeView.swift,
 				Views/LogInView.swift,
+				Views/MedicationsView.swift,
 				Views/RegisterView.swift,
+				Views/SwiftUIView.swift,
+				Views/SymptomsView.swift,
+				Views/VitalsView.swift,
 			);
 			target = 825B686D300755D2009943CA /* CarePulse */;
 		};
