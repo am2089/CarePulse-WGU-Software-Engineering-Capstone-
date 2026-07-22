@@ -37,7 +37,6 @@ struct AppointmentsView: View {
             
         }
         .padding()
-        .navigationTitle("Appointments")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -37,8 +37,7 @@ struct SymptomsView: View {
             
         }
         .padding()
-        .navigationTitle("Symptoms")
-        .navigationBarTitleDisplayMode(.inline)
+      
     }
 }
 

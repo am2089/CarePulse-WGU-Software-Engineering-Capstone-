@@ -37,7 +37,7 @@ struct MedicationsView: View {
             
         }
         .padding()
-        .navigationTitle("Medications")
+
         .navigationBarTitleDisplayMode(.inline)
     }
 }

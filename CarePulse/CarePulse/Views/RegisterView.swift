@@ -67,8 +67,7 @@ struct RegisterView: View {
             
         }
         .padding()
-        .navigationTitle("Register")
-        .navigationBarTitleDisplayMode(.inline)
+        
     }
 }
 
