@@ -6,8 +6,22 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct MedicationsView: View {
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \MedicationEntry.name, ascending: true)
+        ],
+        animation: .default
+    )
+    private var medications: FetchedResults<MedicationEntry>
+    
+    
+    
     var body: some View {
         VStack(spacing: 20){
             
@@ -15,8 +29,8 @@ struct MedicationsView: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
-            Button{
-                
+            NavigationLink {
+                AddMedicationView()
             } label: {
                 Label("Add Medication", systemImage: "plus")
                     .fontWeight(.bold)
@@ -25,25 +39,67 @@ struct MedicationsView: View {
             .controlSize(.large)
             .tint(.blue)
             
-            Spacer()
-            
-            ContentUnavailableView(
-                "No Medication Records",
-                systemImage: "pills",
-                description: Text("Add a Medication record to get started")
-            )
-            
-            Spacer()
-            
+            if medications.isEmpty{
+                
+                Spacer()
+                
+                ContentUnavailableView(
+                    "No Medication Records", systemImage: "pills",
+                    description: Text("Add a medication record to get started")
+                )
+                
+                Spacer()
+                
+            } else {
+                List {
+                    ForEach(medications) {medication in
+                        NavigationLink{
+                            EditMedicationView(medication: medication)
+                        } label: {
+                            VStack(alignment: .leading, spacing: 6){
+                                Text(medication.name ?? "Unknown Medication")
+                                    .fontWeight(.bold)
+                                
+                                Text("Dosage: \(medication.dosage ?? "Not provided")")
+                                    .font(.subheadline)
+                                
+                                Text("Schedule: \(medication.schedule ?? "Not provided")")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                
+                            }
+                            .padding(.vertical, 4)
+                            }
+                       
+                    }
+                    .onDelete(perform: deleteMedications)
+                }
+                .listStyle(.plain)
+                
+            }
         }
         .padding()
-
-        .navigationBarTitleDisplayMode(.inline)
     }
-}
+    
+    private func deleteMedications(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { medications[$0] }.forEach(viewContext.delete)
+            
+            do {
+                try viewContext.save()
+            } catch {
+                print("Could not delete medication record: \(error.localizedDescription)")
+                
+                }
+            }
+        }
+    }
+
+
 
 #Preview {
-    NavigationStack {
+    NavigationStack{
         MedicationsView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

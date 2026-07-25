@@ -53,8 +53,6 @@ struct SymptomsView: View {
             } else {
                 List {
                     ForEach(symptoms) {symptom in
-                        
-                        
                         NavigationLink {
                             EditSymptomView(symptom: symptom)
                         } label: {
