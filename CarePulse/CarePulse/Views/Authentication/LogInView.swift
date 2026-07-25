@@ -71,9 +71,8 @@ struct LogInView: View {
                 Spacer()
             }
             .padding()
-            .navigationBarHidden(true)
-            .navigationDestination(isPresented: $isLoggedIn) {
-                HomeView()
+            .fullScreenCover(isPresented: $isLoggedIn) {
+                ContentView()
             }
         }
     }

@@ -9,23 +9,40 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "heart.text.clipboard")
-                .font(.system(size: 60))
+        TabView {
             
+            NavigationStack {
+                HomeView()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
             
-            Text("CarePulse")
-                .font(.largeTitle)
-                .fontWeight(.bold)
+            SearchView()
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
             
-            Text("Recovery Information Organizer")
-                .foregroundStyle(.secondary)
+            NavigationStack {
+                ReportsView()
+            }
+            .tabItem {
+                Label("Reports", systemImage: "chart.bar")
+            }
+            
+            NavigationStack{
+                SettingsView()
+            }
+            .tabItem {
+                Label("Settings", systemImage: "gearshape")
+            }
         }
-        .padding()
     }
-}
+            
+            
+        }
 
 
 #Preview {
-    ContentView()
+    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
