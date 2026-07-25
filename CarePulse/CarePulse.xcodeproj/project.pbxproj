@@ -48,6 +48,7 @@
 				Views/Medications/AddMedicationView.swift,
 				Views/Medications/EditMedicationView.swift,
 				Views/Medications/MedicationsView.swift,
+				Views/Reports/HealthRecordSummary.swift,
 				Views/Reports/ReportsView.swift,
 				Views/Search/SearchView.swift,
 				Views/Settings/SettingsView.swift,
