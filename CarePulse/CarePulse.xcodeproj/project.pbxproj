@@ -34,12 +34,15 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Assets.xcassets,
+				CarePulse.xcdatamodeld,
 				CarePulseApp.swift,
 				ContentView.swift,
 				"Preview Content/Preview Assets.xcassets",
 				Services/Persistence.swift,
+				Views/AddSymptomView.swift,
 				Views/AddVitalView.swift,
 				Views/AppointmentsView.swift,
+				Views/EditSymptomView.swift,
 				Views/EditVitalView.swift,
 				Views/HomeView.swift,
 				Views/LogInView.swift,
@@ -65,16 +68,6 @@
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		825B68D73008AC1C009943CA /* Exceptions for "CarePulse" folder in "Compile Sources" phase from "CarePulse" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 825B686A300755D2009943CA /* Sources */;
-			membershipExceptions = (
-				CarePulse.xcdatamodeld,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		825B6886300755D5009943CA /* CarePulseTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -90,7 +83,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				825B68D63008AC1C009943CA /* Exceptions for "CarePulse" folder in "CarePulse" target */,
-				825B68D73008AC1C009943CA /* Exceptions for "CarePulse" folder in "Compile Sources" phase from "CarePulse" target */,
 				825B68D83008AC1C009943CA /* Exceptions for "CarePulse" folder in "CarePulseUITests" target */,
 			);
 			path = CarePulse;
