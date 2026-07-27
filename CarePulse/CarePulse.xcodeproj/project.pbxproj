@@ -71,6 +71,24 @@
 				ContentView.swift,
 				"Preview Content/Preview Assets.xcassets",
 				Services/Persistence.swift,
+				Views/Appointments/AddAppointmentView.swift,
+				Views/Appointments/AppointmentsView.swift,
+				Views/Appointments/EditAppointmentView.swift,
+				Views/Authentication/LogInView.swift,
+				Views/Authentication/RegisterView.swift,
+				Views/Home/HomeView.swift,
+				Views/Medications/AddMedicationView.swift,
+				Views/Medications/EditMedicationView.swift,
+				Views/Medications/MedicationsView.swift,
+				Views/Reports/ReportsView.swift,
+				Views/Search/SearchView.swift,
+				Views/Settings/SettingsView.swift,
+				Views/Symptoms/AddSymptomView.swift,
+				Views/Symptoms/EditSymptomView.swift,
+				Views/Symptoms/SymptomsView.swift,
+				Views/Vitals/AddVitalView.swift,
+				Views/Vitals/EditVitalView.swift,
+				Views/Vitals/VitalsView.swift,
 			);
 			target = 825B688C300755D5009943CA /* CarePulseUITests */;
 		};
@@ -452,7 +470,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,7 +499,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
