@@ -13,6 +13,7 @@ struct LogInView: View {
     @State private var password = ""
     @State private var errorMessage = ""
     @State private var isLoggedIn = false
+    @State private var showingRegister = false
     
     var body: some View {
         NavigationStack {
@@ -62,15 +63,16 @@ struct LogInView: View {
                     }
                 }
                 
-                NavigationLink{
-                    RegisterView()
-                } label: {
-                    Text("Register")
+                Button("Register") {
+                    showingRegister = true
                 }
                 
                 Spacer()
             }
             .padding()
+            .navigationDestination(isPresented: $showingRegister) {
+                RegisterView()
+            }
             .fullScreenCover(isPresented: $isLoggedIn) {
                 ContentView()
             }

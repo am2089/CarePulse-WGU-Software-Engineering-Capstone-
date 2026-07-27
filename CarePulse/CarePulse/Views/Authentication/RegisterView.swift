@@ -9,6 +9,9 @@ import SwiftUI
 
 struct RegisterView: View {
     
+    
+    @Environment(\.dismiss) private var dismiss
+    
     @State private var username = ""
     @State private var password = ""
     @State private var confirmPassword = ""
@@ -44,6 +47,7 @@ struct RegisterView: View {
                         errorMessage = "Passwords do not match"
                     } else {
                         errorMessage = ""
+                        dismiss()
                         
                         
                     }
@@ -67,6 +71,8 @@ struct RegisterView: View {
             
         }
         .padding()
+        .navigationTitle("Register")
+        .navigationBarTitleDisplayMode(.inline)
         
     }
 }

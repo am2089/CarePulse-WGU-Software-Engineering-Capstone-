@@ -10,7 +10,7 @@ import CoreData
 
 struct ReportsView: View {
     
-    @FetchRequest(sortDescriptors: [])
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \VitalEntry.date, ascending: false)])
     private var vitals: FetchedResults<VitalEntry>
     
     @FetchRequest(sortDescriptors: [])
@@ -22,76 +22,78 @@ struct ReportsView: View {
     @FetchRequest(sortDescriptors: [])
     private var appointments: FetchedResults<AppointmentEntry>
     
-    
-    
-    
-    var body: some View {
-        VStack(spacing: 24) {
-            
-        Text("Reports")
-            .font(.largeTitle)
-            .fontWeight(.bold)
-        
-        ReportRow(
-            title: "Vital Records",
-            count: vitals.count,
-            systemImage: "heart.text.clipboard"
-        )
-        
-        ReportRow(
-            title: "Symptom Records",
-            count: symptoms.count,
-            systemImage: "waveform.path.ecg"
-        )
-        
-        ReportRow(
-            title: "Medications",
-            count: medications.count,
-            systemImage: "pills"
-        )
-        
-        ReportRow(
-            title: "Appointments",
-            count: appointments.count,
-            systemImage: "calendar"
-        )
-        
-        Spacer()
-        
+    private var reportRows: [HealthRecordSummary] {
+        [
+            VitalRecordSummary(count: vitals.count),
+            SymptomRecordSummary(count: symptoms.count),
+            MedicationRecordSummary(count: medications.count),
+            AppointmentRecordSummary(count: appointments.count)
+        ]
     }
-        .padding()
-        
+    
+    private var reportDate: Date {
+        Date()
     }
+    
+    var body: some View{
+        NavigationStack {
+            VStack(alignment: .leading, spacing: 16) {
+                
+                Text("CarePulse Record Report")
+                    .font(.title)
+                    .fontWeight(.bold)
+                
+                Text("Generated \(reportDate.formatted(date: .abbreviated, time: .shortened))")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                
+                HStack{
+                    Text("Category")
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                    
+                    Text("Record Count")
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                    
+                    Text("Summary")
+                        .fontWeight(.bold)
+                }
+                .font(.caption)
+                .padding(.horizontal)
+                
+                List(reportRows) { report in
+                    HStack(alignment: .top, spacing: 12) {
+                        Text(report.title)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text("\(report.count)")
+                            .frame(width: 70)
+                        
+                        Text(report.summaryText())
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .foregroundStyle(.secondary)
+                            
+                        
+                    }
+                    .font(.subheadline)
+                    
+                }
+                .listStyle(.plain)
+                
+                
+            }
+            .padding()
+            .navigationTitle("Reports")
+        }
+    }
+  
         
 }
 
-struct ReportRow: View {
-    let title: String
-    let count: Int
-    let systemImage: String
-    
-    var body: some View {
-        HStack(spacing: 16) {
-            
-            Image(systemName: systemImage)
-                .font(.title2)
-                .frame(width: 40)
-            
-            Text(title)
-                .font(.headline)
-            
-            Spacer()
-            
-            Text("\(count)")
-                .font(.title2)
-                .fontWeight(.bold)
-        }
-        .padding()
-        .background(.gray.opacity(0.12))
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        
-    }
-}
+
 
 #Preview {
     NavigationStack{
