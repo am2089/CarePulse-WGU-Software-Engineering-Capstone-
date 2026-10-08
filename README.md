@@ -71,11 +71,11 @@ For a physical device, select your own development team under **Signing & Capabi
 
 ## Tests
 
-Open the project in Xcode and run **Product → Test** or press **Command + U**. The unit tests cover record-summary output and polymorphic behavior. The UI targets include launch and performance scaffolding.
+Open the project in Xcode and run **Product → Test** or press **Command + U**. The unit tests cover record summary output and polymorphic behavior. The UI targets include launch and performance scaffolding.
 
 ## Current Scope
 
-CarePulse is a single-user capstone prototype. Login and registration demonstrate form validation and navigation; they do not implement account authentication or separate users' records. Health information is entered manually and stored locally. Automated device imports, cloud synchronization, and report export are not implemented.
+CarePulse is a single user capstone prototype. Login and registration demonstrate form validation and navigation; they do not implement account authentication or separate users' records. Health information is entered manually and stored locally. Automated device imports, cloud synchronization, and report export are not implemented.
 
 ## Author
 
